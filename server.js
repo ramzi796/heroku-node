@@ -113,14 +113,17 @@ app.post("/app/setCalories", function (req, res) {
     var localTime = moment().format('YYYY-MM-DD'); // store localTime
     var proposedDate = localTime + "T00:00:00.000Z";
 
-    db.collection(COLLECTION.fooddiary).insertOne({
+    db.collection(COLLECTION.fooddiary).findOneAndUpdate({
         "dateConsumed": proposedDate, 
+    },{
+            $addToSet: {
                 "calorieData": {
                     "quantity": data.quantity,
                     "timing": data.timing,
                     "calorieCount": data.calorieCount,
                     "foodName": data.foodName
                 }
+            }
         }).then((resp) => {
             res.status(200).json({
                 "success": "Data Successfully inserted"
