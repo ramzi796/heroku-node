@@ -1,0 +1,17 @@
+{
+  "name": "caloriecount",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.0",
+    "express": "^4.15.4",
+    "moment": "^2.18.1",
+    "mongodb": "^2.2.31"
+  }
+}
